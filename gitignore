@@ -1,0 +1,81 @@
+# ======================================
+# 🎵 KAIxGenMusic - Production .gitignore
+# ======================================
+
+# Python Cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environments
+.venv/
+venv/
+env/
+ENV/
+
+# Environment Files (Secrets)
+.env
+.env.*
+!.env.example
+sample.env
+
+# Logs
+*.log
+logs/
+log/
+
+# Database
+*.sqlite3
+*.db
+
+# Audio / Temp Music Files
+downloads/
+temp/
+*.mp3
+*.wav
+*.flac
+*.m4a
+
+# Session / Cookies
+*.session
+sessions/
+cookies/
+
+# Build / Dist
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Coverage / Testing
+.coverage
+.coverage.*
+htmlcov/
+.pytest_cache/
+.tox/
+.nox/
+
+# Docker
+docker-compose.override.yml
+
+# Render / Heroku
+.heroku/
+.render/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Node (if frontend added later)
+node_modules/
+
+# ======================================
+# 🔐 NEVER COMMIT SENSITIVE FILES
+# ======================================
+config/secrets.json
+config/*.key
