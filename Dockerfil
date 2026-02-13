@@ -1,0 +1,37 @@
+# =========================================
+# 🎵 KAIxGenMusic - Production Dockerfile
+# =========================================
+
+FROM python:3.10-slim
+
+# Environment variables
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
+
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    ffmpeg \
+    aria2 \
+    git \
+    curl \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
+# Set work directory
+WORKDIR /app
+
+# Copy only requirements first (better caching)
+COPY requirements.txt .
+
+# Upgrade pip and install dependencies
+RUN pip install --upgrade pip \
+    && pip install --no-cache-dir -r requirements.txt
+
+# Copy project files
+COPY . .
+
+# Expose port (for web service if using Flask)
+EXPOSE 8000
+
+# Start the bot
+CMD ["python", "-m", "KAIxGen"]
