@@ -1,0 +1,85 @@
+{
+  "name": "KAIxGenMusic",
+  "description": "KAIxGenMusic is a powerful Telegram Group Voice Chat Music Bot built with Pyrogram & Py-Tgcalls. Supports YouTube, Spotify, Apple Music, SoundCloud & M3U8 streaming.",
+  "logo": "https://files.catbox.moe/6iv99c.jpg",
+  "keywords": [
+    "python",
+    "telegram",
+    "music-bot",
+    "pyrogram",
+    "pytgcalls",
+    "voice-chat",
+    "kai"
+  ],
+  "stack": "container",
+
+  "env": {
+    "API_ID": {
+      "description": "Get from https://my.telegram.org",
+      "required": true
+    },
+    "API_HASH": {
+      "description": "Get from https://my.telegram.org",
+      "required": true
+    },
+    "BOT_TOKEN": {
+      "description": "Get from @BotFather",
+      "required": true
+    },
+    "BOT_USERNAME": {
+      "description": "Your bot username (without @)",
+      "required": true
+    },
+    "MONGO_DB_URI": {
+      "description": "MongoDB Atlas connection string",
+      "required": true
+    },
+    "OWNER_ID": {
+      "description": "Telegram User ID of bot owner",
+      "required": true
+    },
+    "STRING_SESSION": {
+      "description": "Pyrogram Assistant String Session",
+      "required": true
+    },
+    "LOG_GROUP_ID": {
+      "description": "Private group ID for logs",
+      "required": true
+    },
+    "AUTO_GCAST": {
+      "description": "Enable Auto Broadcast (On/Off)",
+      "value": "off",
+      "required": false
+    },
+    "AUTO_GCAST_MSG": {
+      "description": "Message for auto broadcast",
+      "required": false
+    },
+    "UPSTREAM_REPO": {
+      "description": "GitHub repo link",
+      "value": "https://github.com/GOKUxEDITION/KAIxGenMusic",
+      "required": true
+    },
+    "UPSTREAM_BRANCH": {
+      "description": "Branch name",
+      "value": "main",
+      "required": true
+    }
+  },
+
+  "buildpacks": [
+    {
+      "url": "heroku/python"
+    },
+    {
+      "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest.git"
+    }
+  ],
+
+  "formation": {
+    "worker": {
+      "quantity": 1,
+      "size": "basic"
+    }
+  }
+}
